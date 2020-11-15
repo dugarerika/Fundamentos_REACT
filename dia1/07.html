@@ -1,0 +1,30 @@
+<body>
+    <div id="root"></div>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@17/umd/react.development.js"
+></script>
+    <script
+    crossorigin
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+></script>
+<script
+    crossorigin
+    src="https://unpkg.com/@babel/standalone@7.8.3/babel.min.js"
+  ></script>
+    <script type="text/babel">
+    const rootElement = document.getElementById('root')
+    const helloWorld = "Hello Wolrd!"
+    const goodbye = "Good Bye!"
+    const Mensaje = ({children}) => {
+        return <div className>{children}</div>
+    }
+    
+    const element = <div className="container">
+        <Mensaje>{helloWorld}</Mensaje>
+        <Mensaje children = {helloWorld}></Mensaje>
+        </div>
+    ReactDOM.render(element,rootElement)
+    console.log(element)
+    </script>
+</body>
