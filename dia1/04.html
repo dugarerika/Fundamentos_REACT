@@ -18,11 +18,11 @@
     const props = {
         className,
         children:<span>Hello World!</span>,
-        disabled: true,
-        style: {color: 'red'}
+        // disabled: true,
+        // style: {color: 'red'}
         }
     const element = 
-        <div{...props}></div>
+        <div className={props.className} children={props.children}></div>
     ReactDOM.render(element,rootElement)
     console.log(element)
     </script>

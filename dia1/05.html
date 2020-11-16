@@ -14,17 +14,18 @@
   ></script>
     <script type="text/babel">
     const rootElement = document.getElementById('root')
-    
-    // const element = <div> 
-    //     <div className="container">Hello World!</div>
-    //     <div className="container">Hello World!</div>
-    //     </div>
-    
-    const element = <React.Fragment> 
-        <div className="container">Hello World!</div>
-        <div className="container">Hello World!</div>
-        </React.Fragment>
-    
+    const className = 'container'
+    const props = {
+        className,
+        children:<span>Hello World!</span>,
+        // disabled: true,
+        // style: {color: 'red'}
+        }
+    const element = 
+        // <div className={props.className} children={props.children}></div>
+        // <div className={props.className}>{props.children}</div>
+        // <div {...props}></div>
+        <div {...props}>Others</div>
     ReactDOM.render(element,rootElement)
     console.log(element)
     </script>

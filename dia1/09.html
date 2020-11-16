@@ -14,15 +14,15 @@
   ></script>
     <script type="text/babel">
     const rootElement = document.getElementById('root')
-    const className = 'container'
-    const hello = "Hello"
-    const world = "World!"
-    const helloWorld = ()=> "Hello World!"
-    const element = 
-        <div className={className}>
-            <span>{`${hello} ${world}`}</span>
-            <span>{ helloWorld() }</span>
-            <span><strong>Strong</strong></span>
+    const helloWorld = "Hello Wolrd!"
+    const goodbye = "Good Bye!"
+    const Mensaje = ({children}) => {
+        return <div className>{children}</div>
+    }
+    
+    const element = <div className="container">
+        <Mensaje>{helloWorld}</Mensaje>
+        <Mensaje children = {helloWorld}></Mensaje>
         </div>
     ReactDOM.render(element,rootElement)
     console.log(element)

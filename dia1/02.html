@@ -12,7 +12,11 @@
     const rootElement = document.getElementById('root')
     // const element = document.createElement('div')
     // const element = React.createElement('div', {className:'container', children:'Hello World'})
-    const element = React.createElement('div', {className:'container'}, 'Hello', 'World' )
+    // const element = React.createElement('div', {className:'container'}, 'Hello', 'World' )
+    const element = React.createElement('div', 
+        {className:'container'},
+        React.createElement('span',null,'Hello world!')
+    )
     // element.textContent = 'Hello world'
     // element.className = 'container'
     ReactDOM.render(element,rootElement)
