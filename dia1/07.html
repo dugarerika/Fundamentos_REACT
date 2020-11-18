@@ -24,8 +24,19 @@
         <div className="container">Hello World!</div>
         <div className="container">Hello World!</div>
         </React.Fragment>
+
+    const element1 = <> 
+        <div className="container">Hello World!</div>
+        <div className="container">Hello World!</div>
+        </>
+
+        const element3 = [ 
+        <div className="container">Hello World!</div>,
+        <div className="container">Hello World!</div>
+        ]
     
     ReactDOM.render(element,rootElement)
+    ReactDOM.render(element1,rootElement)
     console.log(element)
     </script>
 </body>
