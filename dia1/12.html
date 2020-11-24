@@ -1,0 +1,30 @@
+<body>
+    <div id="root"></div>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@17/umd/react.development.js"
+></script>
+    <script
+    crossorigin
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+></script>
+<script
+    crossorigin
+    src="https://unpkg.com/@babel/standalone@7.8.3/babel.min.js"
+  ></script>
+    <script type="text/babel">
+    const rootElement = document.getElementById('root')
+
+    function tick(){
+    const now = new Date().toLocaleTimeString();
+    const element =(  <div className="container">
+        <span className="clock">{now}</span>
+        </div>
+        );
+    
+    ReactDOM.render(element,rootElement)
+    }
+    tick();
+    setInterval(tick,1000);
+    </script>
+</body>

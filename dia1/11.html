@@ -1,0 +1,68 @@
+
+<!-- 
+    // Componentes funcion
+// Componentes class
+//Recibe objeto de propiedades (props) por parametro y devuelve elementos react
+
+// Funcion Pura
+
+//function suma(a,b){
+//    retur a + b
+//} -->
+
+<body>
+    <div id="root"></div>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@17/umd/react.development.js"
+></script>
+    <script
+    crossorigin
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+></script>
+<script
+    crossorigin
+    src="https://unpkg.com/@babel/standalone@7.8.3/babel.min.js"
+  ></script>
+    <script type="text/babel">
+    const rootElement = document.getElementById('root')
+    const helloWorld = "Hello Wolrd!"
+    const goodbye = "Good Bye!"
+
+    // const Mensaje = props => {
+    //     return <div className>{props.children}</div>
+    // }
+
+    // haciendo destructuring a la constante mensaje
+    // const Mensaje = ({children}) => {
+    //     return <div className>{children}</div>
+    // }
+    
+    class Mensaje extends React.Component{
+        constructor(props){
+                super(props)
+        }
+
+        componentDidMount(){
+        }
+
+        componentDidUpdate(){
+        }
+
+        componentWillMount(){
+        }
+
+        render(){
+            // console.log(this)
+            return <div className='text'>{this.props.children}</div>
+        }
+    }
+
+    const element = <div className="container">
+        <Mensaje>{helloWorld}</Mensaje>
+        <Mensaje children = {goodbye}></Mensaje>
+        </div>
+    ReactDOM.render(element,rootElement)
+    // console.log(element)
+    </script>
+</body>
