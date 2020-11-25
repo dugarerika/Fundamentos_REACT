@@ -24,30 +24,74 @@
         // }
 
         state = {
-            now: new Date().toLocaleTimeString()
+            now: new Date(),
+            key: 'value'
         }
 
-        tick(){
+        tick = () => {
             console.log('tick')
             console.log(this)
-            this.state.now = new Date().toLocaleTimeString()
+            // this.state.now = new Date().toLocaleTimeString()
+            // this.setState({now: new Date().toLocaleTimeString()})
+            const now = this.state;
+            
+            // firma without destructuring 
+            // this.setState((state)=>{
+            //     return {
+            //         now: state.now + '1s'
+            //     }
+            // })
+
+            // fimar with estructuring
+            this.setState(({now})=>{
+                return {
+                    now: new Date()
+                }
+            })
         }
 
         componentDidMount(){
-            console.log('Se monta')
-            this.interval =setInterval(this.tick,1000)
+            console.log('componentDidMount')
+            this.interval = setInterval(this.tick, 1000)
+        }
+
+        componentWillUnmount(){
+            console.log('componentWillUnmount')
+            // clearInterval(this.interval)
+        }
+
+        componentDidUpdate(prevProps, prevState){
+            console.log('componentDidUpdate', this.props, prevProps, prevState)
         }
 
         render(){
             console.log('render')
             return(
                 <div className="container">
-                    <span className="clock">{this.state.now}</span>
+                    <span className="clock" style={{color: this.props.color}}>{this.state.now.toLocaleTimeString()}</span>
                 </div>
             );
         }
     }
 
-    ReactDOM.render(<Clock />, rootElement)
+    let color = "red"
+    function tick(){
+        if(color === "red") {
+            color = "blue"
+        } else {
+            color = "red"
+        }
+    ReactDOM.render(<Clock color={color}/>, rootElement)
+    }
+    setInterval(tick,3000)
+    tick()
     </script>
 </body>
+
+<!-- //Si necesitamos calcular el nuevo estado de funcion del estado anterior podemos pasar una funcion
+
+// Incorrecto
+// this.setState({counter: this.state.counter + this.props.increment});
+
+// Correcto
+// this.setState((state, props)=>({counter: state.counter + props.increment})); -->
