@@ -1,0 +1,11 @@
+.tweet{
+    border-bottom-width: 1px;
+    cursor: pointer;
+    display: flex;
+    padding: 10px 15 px 0 15px;
+    transition: background-color 0.2s;
+}
+
+.tweet:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
