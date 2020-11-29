@@ -1,26 +1,41 @@
 import React from 'react';
-import './Tweet.css'
-import Photo from '../shared/Photo'
-import defaultPhoto from '../../assets/default_profile.png'
+import T from "prop-types"
 
-const Tweet = ({ tweet }) => (
+import defaultPhoto from '../../assets/default_profile.png'
+import Photo from '../shared/Photo'
+import './Tweet.css'
+
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+    
+const Tweet = ({ user, createdAt, content }) => (
     <li className="tweet bordered">
+        <article className="tweet bordered">
         <div className="left">
             <Photo src={defaultPhoto} />
         </div>
         <div className="right">
             <div className="tweet-header">
-                <span className="tweet-nombre">{tweet.user.name}</span>
-                <span className="tweet-username">{tweet.user.username}</span>
+                <span className="tweet-nombre">{user.name}</span>
+                <span className="tweet-username">{user.username}</span>
                 <span className="tweet-separador">.</span>
-                <time>{tweet.createdAt}</time>
+                <time>{createdAt}</time>
+                <time dateTime={createdAt}>
+                    {formatDistanceToNow(new Date(createdAt))}
+                </time>
             </div>
             <div>
-                {tweet.content}
+                {content}
                 <div className="tweet-actions"></div>
             </div>
-        </div>
-    </li>
+            </div>
+        </article>
+    </li>     
 );
+
+Tweet.prototype = {
+    user: T.shape({name: T.string, username:T.string}).isRequired,
+    createdAt: T.string.isRequired,
+    content: T.string.isRequired,
+};
 
 export default Tweet;

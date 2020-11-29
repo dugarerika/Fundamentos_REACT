@@ -9,9 +9,19 @@ class TweetsPage extends React.Component{
     tweets: null,
     };
 
-    async componentDidMount() { 
+    // async componentDidMount() { 
+    //     const tweets = await getLatestTweets();
+    //     this.setState({tweets});
+    // }
+
+
+    getTweets = async () => { 
         const tweets = await getLatestTweets();
-        this.setState({tweets});
+        this.setState({ tweets });
+    }
+
+    componentDidMount() { 
+        this.getTweets();
     }
 
     render() {
@@ -19,8 +29,9 @@ class TweetsPage extends React.Component{
         return (
             tweets && (
             <ul>
-                {tweets.map(tweet => (
-                    <Tweet key={tweet.id} tweet={tweet} />
+                    {tweets.map(tweet => (
+                        // destructuring
+                        <Tweet key={tweet.id} {...tweet} />
                 ))}
             </ul>
             )
