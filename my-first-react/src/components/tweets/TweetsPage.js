@@ -2,6 +2,7 @@ import React from 'react'
 import { getLatestTweets } from '../../API/tweets'
 import Tweet from './Tweet'
 
+
 class TweetsPage extends React.Component{
 
     state = {
