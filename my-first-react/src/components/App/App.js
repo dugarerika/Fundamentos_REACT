@@ -1,5 +1,6 @@
 import React from 'react';
-import TweetsPage from '../tweets/TweetsPage';
+import LoginPage from '../auth/LoginPage';
+// import TweetsPage from '../tweets/TweetsPage';
 
 class App extends React.Component{
 
@@ -8,7 +9,8 @@ class App extends React.Component{
 
     return (
       <div className="App">
-        <TweetsPage/>
+        {/*<TweetsPage />*/}
+        <LoginPage/>
       </div>
     );
   }

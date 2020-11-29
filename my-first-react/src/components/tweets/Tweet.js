@@ -1,15 +1,14 @@
 import React from 'react';
-import T from "prop-types"
-
-import defaultPhoto from '../../assets/default_profile.png'
-import Photo from '../shared/Photo'
-import './Tweet.css'
-
+import T from "prop-types";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-    
-const Tweet = ({ user, createdAt, content }) => (
-    <li className="tweet bordered">
-        <article className="tweet bordered">
+import defaultPhoto from '../../assets/default_profile.png';
+import Photo from '../shared/Photo';
+import './Tweet.css';
+ 
+const Tweet = ({ user, createdAt, content }) => {
+    const handleClick = event => console.log(event)
+    return (
+    <article className="tweet bordered" onClick={handleClick } >
         <div className="left">
             <Photo src={defaultPhoto} />
         </div>
@@ -28,9 +27,9 @@ const Tweet = ({ user, createdAt, content }) => (
                 <div className="tweet-actions"></div>
             </div>
             </div>
-        </article>
-    </li>     
-);
+    </article>
+    );
+};
 
 Tweet.prototype = {
     user: T.shape({name: T.string, username:T.string}).isRequired,
