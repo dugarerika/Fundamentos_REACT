@@ -11,11 +11,7 @@ class LoginPage extends React.Component {
 				<form>
 					<input type='text' />
 					<input type='password' />
-					<Button
-						type='submit'
-						className='loginPage-button'
-						variant='primary'
-						disabled>
+					<Button type='submit' className='loginPage-button' variant='primary'>
 						Log In
 					</Button>
 				</form>
